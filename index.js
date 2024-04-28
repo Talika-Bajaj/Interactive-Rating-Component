@@ -3,18 +3,19 @@ const buttons = document.getElementsByClassName('btn');
 
 for (let index = 0; index < buttons.length; index++) {
     const element = buttons[index];
-    element.addEventListener('click', (e)=> {
 
-        document.getElementById('submit').disabled = false;
-        element.classList.toggle('active');
-        // console.log(buttons);
-
+    element.addEventListener("click", (e) => {
+        Array.from(buttons).forEach((button) => button.classList.remove("active"));
+        document.getElementById("submit").disabled = false;
+        e.target.classList.add("active");
+        // console.log(e.target);
         let text = e.target.innerText;
-        // console.log(e.target.innerText);
-       
-        document.getElementById('rate').innerHTML = `You selected ${text} out of 5`;
-    })
-    // console.log(element);
+        document.getElementById("rate").innerHTML = `You selected ${text} out of 5`;
+      });
+    
+
+   
+    console.log(element);
 }
 
 submit.addEventListener('click', ()=> {
